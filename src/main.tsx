@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Dice from './Dice';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Dice />
   </React.StrictMode>,
   document.getElementById('root'),
 );
