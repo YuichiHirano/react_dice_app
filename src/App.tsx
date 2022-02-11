@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+const App: FC = () => {
   const [count, setCount] = useState(0);
+  const addCount = () => setCount((c) => c + 1);
 
   return (
     <div className="App">
@@ -11,7 +12,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>Hello Vite + React!</p>
         <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
+          <button type="button" onClick={addCount}>
             count is: {count}
           </button>
         </p>
@@ -40,6 +41,5 @@ function App() {
       </header>
     </div>
   );
-}
-
+};
 export default App;
