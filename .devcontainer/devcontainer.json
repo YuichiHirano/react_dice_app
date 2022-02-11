@@ -30,7 +30,7 @@
 			"editor.formatOnSave": true 
 		},
 		"[json]": { 
-				"editor.formatOnSave": true
+			"editor.formatOnSave": true
 		}, 
 		"[typescript]": {
 			"editor.formatOnSave": true 
