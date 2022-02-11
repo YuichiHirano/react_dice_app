@@ -5,7 +5,7 @@ module.exports = {
     es2021: true,
   },
   extends: [
-    'eslint:all',
+    'eslint:recommended',
     'standard',
     'plugin:@typescript-eslint/recommended',
     'plugin:import/recommended',
