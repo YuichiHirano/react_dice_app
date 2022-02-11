@@ -1,19 +1,16 @@
+// 参照元:https://github.com/oukayuka/Riakuto-StartingReact-ja3.0
 module.exports = {
   env: {
     browser: true,
     es2021: true,
   },
   extends: [
-    'plugin:react/recommended',
-    'airbnb',
-    'airbnb/hooks',
-    'plugin:import/errors',
-    'plugin:import/warnings',
-    'plugin:import/typescript',
-    'plugin:@typescript-eslint/eslint-recommended',
+    'eslint:all',
+    'standard',
     'plugin:@typescript-eslint/recommended',
-    'plugin:@typescript-eslint/recommended-requiring-type-checking',
-    'plugin:prettier/recommended',
+    'plugin:import/recommended',
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
     'prettier',
   ],
   parser: '@typescript-eslint/parser',
@@ -59,11 +56,11 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': [
       'error',
       {
-        'vars': 'all',
-        'args': 'after-used',
-        'argsIgnorePattern': '_',
-        'ignoreRestSiblings': false,
-        'varsIgnorePattern': '_',
+        vars: 'all',
+        args: 'after-used',
+        argsIgnorePattern: '_',
+        ignoreRestSiblings: false,
+        varsIgnorePattern: '_',
       },
     ],
     'import/extensions': [
@@ -102,8 +99,8 @@ module.exports = {
   },
   overrides: [
     {
-      'files': ['*.tsx'],
-      'rules': {
+      files: ['*.tsx'],
+      rules: {
         'react/prop-types': 'off',
       },
     },
