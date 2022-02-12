@@ -1,35 +1,26 @@
-import React, { VFC, useState } from 'react';
+import React, { VFC } from 'react';
+import useDice from './hooks/useDice';
 
 const Dice: VFC = () => {
-  const [candidates, setCandidates] = useState<string[]>([]);
-  const [candidate, setCandidate] = useState<string>('');
-  const [target, setTarget] = useState('???');
-  const addCandidate = (event: React.MouseEvent) => {
-    event.preventDefault();
-    if (candidates.includes(candidate)) {
-      alert(candidate + ' is Already added.');
-    } else {
-      setCandidates((c) => [...c, candidate]);
-      setCandidate('');
-    }
-  };
-  const rollDice = () => {
-    setTarget(candidates[Math.floor(Math.random() * candidates.length)]);
-  };
-  const inputCandidate = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setCandidate(event.target.value);
-  };
+  const [
+    candidates,
+    candidate,
+    target,
+    addCandidate,
+    rollDice,
+    inputCandidate,
+  ] = useDice();
 
   return (
     <div className="Dice">
       <ul>
-        {candidates.map((target) => (
-          <li key={target}>{target}</li>
+        {candidates.map((t) => (
+          <li key={t}>{t}</li>
         ))}
       </ul>
       <div>
         <input type="text" value={candidate} onChange={inputCandidate} />
-        <button type="button" onClick={(e) => addCandidate(e)}>
+        <button type="button" onClick={addCandidate}>
           追加
         </button>
       </div>
