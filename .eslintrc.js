@@ -1,4 +1,4 @@
-// 参照元:https://github.com/oukayuka/Riakuto-StartingReact-ja3.0
+// ref:https://github.com/oukayuka/Riakuto-StartingReact-ja3.0
 module.exports = {
   env: {
     browser: true,
