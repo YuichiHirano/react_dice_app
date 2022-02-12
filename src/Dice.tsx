@@ -1,15 +1,11 @@
 import React, { VFC } from 'react';
+import useCRUD from './hooks/useCRUD';
 import useDice from './hooks/useDice';
 
 const Dice: VFC = () => {
-  const [
-    candidates,
-    candidate,
-    target,
-    addCandidate,
-    rollDice,
-    inputCandidate,
-  ] = useDice();
+  const [candidates, candidate, addCandidate, inputCandidate] = useCRUD();
+
+  const [target, rollDice] = useDice();
 
   return (
     <div className="Dice">
@@ -25,7 +21,7 @@ const Dice: VFC = () => {
         </button>
       </div>
       <div>
-        <button type="button" onClick={rollDice}>
+        <button type="button" onClick={() => rollDice(candidates)}>
           ダイスを振る
         </button>
         <p>抽選結果: {target}</p>
