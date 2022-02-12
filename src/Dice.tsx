@@ -3,7 +3,8 @@ import useCRUD from './hooks/useCRUD';
 import useDice from './hooks/useDice';
 
 const Dice: VFC = () => {
-  const [candidates, candidate, addCandidate, inputCandidate] = useCRUD();
+  const [candidates, candidate, addCandidate, deleteCandidate, inputCandidate] =
+    useCRUD();
 
   const [target, rollDice] = useDice();
 
@@ -11,7 +12,12 @@ const Dice: VFC = () => {
     <div className="Dice">
       <ul>
         {candidates.map((t) => (
-          <li key={t}>{t}</li>
+          <li key={t}>
+            {t}   
+            <button type="button" onClick={() => deleteCandidate(t)}>
+              ×
+            </button>
+          </li>
         ))}
       </ul>
       <div>

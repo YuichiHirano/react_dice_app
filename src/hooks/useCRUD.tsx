@@ -3,13 +3,13 @@ import React, { useState } from 'react';
 const useCRUD = (): [
   string[],
   string,
-  (event: React.MouseEvent) => void,
+  () => void,
+  (t: string) => void,
   (event: React.ChangeEvent<HTMLInputElement>) => void,
 ] => {
   const [candidates, setCandidates] = useState<string[]>([]);
   const [candidate, setCandidate] = useState('');
-  const addCandidate = (event: React.MouseEvent) => {
-    event.preventDefault();
+  const addCandidate = () => {
     if (candidates.includes(candidate)) {
       alert(candidate + ' is Already added.');
     } else {
@@ -17,12 +17,15 @@ const useCRUD = (): [
       setCandidate('');
     }
   };
+  const deleteCandidate = (t: string) => {
+    setCandidates((c) => c.filter((k) => k !== t));
+  };
 
   const inputCandidate = (event: React.ChangeEvent<HTMLInputElement>) => {
     setCandidate(event.target.value);
   };
 
-  return [candidates, candidate, addCandidate, inputCandidate];
+  return [candidates, candidate, addCandidate, deleteCandidate, inputCandidate];
 };
 
 export default useCRUD;
