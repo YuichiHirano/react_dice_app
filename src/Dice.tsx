@@ -22,7 +22,6 @@ const Dice: FC = () => {
 
   return (
     <div className="Dice">
-      <header>ダイス</header>
       <ul>
         {candidates.map((target) => (
           <li key={target}>{target}</li>
