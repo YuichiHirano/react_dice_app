@@ -1,6 +1,6 @@
-import React, { FC, useState } from 'react';
+import React, { VFC, useState } from 'react';
 
-const Dice: FC = () => {
+const Dice: VFC = () => {
   const [candidates, setCandidates] = useState<string[]>([]);
   const [candidate, setCandidate] = useState<string>('');
   const [target, setTarget] = useState('???');
