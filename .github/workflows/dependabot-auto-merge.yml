@@ -1,8 +1,6 @@
 name: Dependabot auto-merge
 on:
-  workflow_run:
-    workflows: 
-      - Test
+  pull_request:
 
 
 permissions:
@@ -12,7 +10,7 @@ permissions:
 jobs:
   dependabot:
     runs-on: ubuntu-latest
-    if: ${{ github.actor == 'dependabot[bot]' }} && ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
       - name: Dependabot metadata
         id: metadata
