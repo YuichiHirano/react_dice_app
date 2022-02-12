@@ -2,7 +2,7 @@ import { FC, useState } from 'react';
 
 const Dice: FC = () => {
   const candidates = ['1', '2', '3', '4', '5', '6'];
-  const [target, setTarget] = useState('anonymous');
+  const [target, setTarget] = useState('???');
   const rollDice = () => {
     setTarget(candidates[Math.floor(Math.random() * candidates.length)]);
   };
