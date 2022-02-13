@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const useCRUD = (
   initList: string[],
@@ -26,6 +26,11 @@ const useCRUD = (
   const inputCandidate = (event: React.ChangeEvent<HTMLInputElement>) => {
     setCandidate(event.target.value);
   };
+  useEffect(() => {
+    setCandidates(initList);
+    // list比較のため
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [JSON.stringify(initList)]);
 
   return [candidates, candidate, addCandidate, deleteCandidate, inputCandidate];
 };

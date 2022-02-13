@@ -9,6 +9,7 @@ const Dice: VFC = () => {
     'candidates',
     initValues.join(),
   );
+
   const [candidates, candidate, addCandidate, deleteCandidate, inputCandidate] =
     useCRUD(
       initCandidates.split(',').length > 1
