@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 
-const useCRUD = (): [
+const useCRUD = (
+  initList: string[],
+): [
   string[],
   string,
   () => void,
   (t: string) => void,
   (event: React.ChangeEvent<HTMLInputElement>) => void,
 ] => {
-  const [candidates, setCandidates] = useState<string[]>([]);
+  const [candidates, setCandidates] = useState<string[]>(initList);
   const [candidate, setCandidate] = useState('');
   const addCandidate = () => {
     if (candidates.includes(candidate)) {
