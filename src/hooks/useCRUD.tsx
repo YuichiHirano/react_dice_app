@@ -28,7 +28,7 @@ const useCRUD = (
   };
   useEffect(() => {
     setCandidates(initList);
-    // list比較のため
+    // disable eslint rule to compaire list
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [JSON.stringify(initList)]);
 
