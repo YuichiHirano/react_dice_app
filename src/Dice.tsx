@@ -5,7 +5,7 @@ import useLocalStorage from './hooks/useLocalStorage';
 
 const Dice: VFC = () => {
   const initValues: string[] = ['Alice', 'Bob', 'Charlie'];
-  const [initCandidates, saveCandidates] = useLocalStorage(
+  const [initCandidates, saveCandidates, deleteCandidates] = useLocalStorage(
     'candidates',
     initValues.join(),
   );
@@ -41,13 +41,16 @@ const Dice: VFC = () => {
         <button type="button" onClick={() => saveCandidates(candidates.join())}>
           Save
         </button>
+        <button type="button" onClick={deleteCandidates}>
+          Delete
+        </button>
       </div>
       <br />
       <div>
         <button type="button" onClick={() => rollDice(candidates)}>
-          ダイスを振る
+          Roll
         </button>
-        <p>抽選結果: {target}</p>
+        <p>Result: {target}</p>
       </div>
     </div>
   );
