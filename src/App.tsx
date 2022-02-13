@@ -7,7 +7,7 @@ const App: VFC = () => {
     <div className="App">
       <AppBar position="relative" color="primary">
         <Toolbar>
-          <strong>ダイス</strong>
+          <strong>DICE</strong>
         </Toolbar>
       </AppBar>
       <Dice />
