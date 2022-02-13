@@ -4,7 +4,7 @@ import useDice from './hooks/useDice';
 import useLocalStorage from './hooks/useLocalStorage';
 
 const Dice: VFC = () => {
-  const initValues: string[] = [];
+  const initValues: string[] = ['Alice', 'Bob', 'Charlie'];
   const [initCandidates, saveCandidates] = useLocalStorage(
     'candidates',
     initValues.join(),
