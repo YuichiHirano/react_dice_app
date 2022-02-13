@@ -1,4 +1,16 @@
 import React, { VFC } from 'react';
+import {
+  Button,
+  List,
+  ListItem,
+  ListItemText,
+  Stack,
+  TextField,
+  Grid,
+} from '@mui/material';
+import SaveIcon from '@mui/icons-material/Save';
+import DeleteIcon from '@mui/icons-material/Delete';
+
 import useCRUD from './hooks/useCRUD';
 import useDice from './hooks/useDice';
 import useLocalStorage from './hooks/useLocalStorage';
@@ -21,37 +33,54 @@ const Dice: VFC = () => {
 
   return (
     <div className="Dice">
-      <ul>
-        {candidates.map((t) => (
-          <li key={t}>
-            {t}
-            <button type="button" onClick={() => deleteCandidate(t)}>
-              ×
-            </button>
-          </li>
-        ))}
-      </ul>
-      <div>
-        <input type="text" value={candidate} onChange={inputCandidate} />
-        <button type="button" onClick={addCandidate}>
-          Add
-        </button>
-      </div>
-      <div>
-        <button type="button" onClick={() => saveCandidates(candidates.join())}>
+      <Grid container spacing={3} justifyContent="flex-end">
+        <Button
+          variant="contained"
+          startIcon={<SaveIcon />}
+          onClick={() => saveCandidates(candidates.join())}
+        >
           Save
-        </button>
-        <button type="button" onClick={deleteCandidates}>
+        </Button>
+        <Button
+          variant="contained"
+          startIcon={<DeleteIcon />}
+          onClick={deleteCandidates}
+        >
           Delete
-        </button>
-      </div>
+        </Button>
+      </Grid>
+      <List>
+        {candidates.map((c) => (
+          <ListItem key={c}>
+            <ListItemText primary={c} />
+
+            <Button
+              onClick={() => deleteCandidate(c)}
+              startIcon={<DeleteIcon />}
+            />
+          </ListItem>
+        ))}
+      </List>
+      <Stack direction="row" spacing={2}>
+        <TextField
+          id="standard-basic"
+          label="Standard"
+          variant="standard"
+          value={candidate}
+          onChange={inputCandidate}
+        />
+        <Button variant="contained" onClick={addCandidate}>
+          Add
+        </Button>
+      </Stack>
+
       <br />
-      <div>
-        <button type="button" onClick={() => rollDice(candidates)}>
+      <Stack direction="row" spacing={2}>
+        <Button variant="contained" onClick={() => rollDice(candidates)}>
           Roll
-        </button>
+        </Button>
         <p>Result: {target}</p>
-      </div>
+      </Stack>
     </div>
   );
 };
