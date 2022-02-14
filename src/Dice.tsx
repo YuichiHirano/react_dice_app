@@ -66,7 +66,7 @@ const Dice: VFC = () => {
       <Stack direction="row" spacing={2}>
         <TextField
           id="standard-basic"
-          label="Standard"
+          label="Candidate"
           variant="standard"
           value={candidate}
           onChange={inputCandidate}
