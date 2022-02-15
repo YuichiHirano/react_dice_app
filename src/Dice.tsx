@@ -10,11 +10,9 @@ import {
 } from '@mui/material';
 import SaveIcon from '@mui/icons-material/Save';
 import DeleteIcon from '@mui/icons-material/Delete';
-
+import RollDice from './RollDice';
 import useCRUD from './hooks/useCRUD';
-import useDice from './hooks/useDice';
 import useLocalStorage from './hooks/useLocalStorage';
-import useCount from './hooks/useCount';
 
 const Dice: VFC = () => {
   const initValues: string[] = ['Alice', 'Bob', 'Charlie'];
@@ -29,9 +27,6 @@ const Dice: VFC = () => {
         ? initCandidates.split(',')
         : initValues,
     );
-
-  const [target, rollDice] = useDice();
-  const [count, addCount] = useCount();
 
   return (
     <div className="Dice">
@@ -77,20 +72,7 @@ const Dice: VFC = () => {
       </Stack>
 
       <br />
-      <Stack direction="row" spacing={2}>
-        <Button
-          variant="contained"
-          onClick={() => {
-            rollDice(candidates);
-            addCount();
-          }}
-        >
-          Roll
-        </Button>
-        <p>
-          Result({count}): {target}
-        </p>
-      </Stack>
+      <RollDice candidates={candidates} />
     </div>
   );
 };
