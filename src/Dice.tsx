@@ -6,20 +6,16 @@ import {
   ListItemText,
   Stack,
   TextField,
-  Grid,
 } from '@mui/material';
-import SaveIcon from '@mui/icons-material/Save';
 import DeleteIcon from '@mui/icons-material/Delete';
 import RollDice from './RollDice';
+import SaveDice from './SaveDice';
 import useCRUD from './hooks/useCRUD';
 import useLocalStorage from './hooks/useLocalStorage';
 
 const Dice: VFC = () => {
   const initValues: string[] = ['Alice', 'Bob', 'Charlie'];
-  const [initCandidates, saveCandidates, deleteCandidates] = useLocalStorage(
-    'candidates',
-    initValues.join(),
-  );
+  const [initCandidates] = useLocalStorage('candidates', initValues.join());
 
   const [candidates, candidate, addCandidate, deleteCandidate, inputCandidate] =
     useCRUD(
@@ -30,22 +26,7 @@ const Dice: VFC = () => {
 
   return (
     <div className="Dice">
-      <Grid container spacing={3} justifyContent="flex-end">
-        <Button
-          variant="contained"
-          startIcon={<SaveIcon />}
-          onClick={() => saveCandidates(candidates.join())}
-        >
-          Save
-        </Button>
-        <Button
-          variant="contained"
-          startIcon={<DeleteIcon />}
-          onClick={deleteCandidates}
-        >
-          Delete
-        </Button>
-      </Grid>
+      <SaveDice candidates={candidates} />
       <List>
         {candidates.map((c) => (
           <ListItem key={c}>
