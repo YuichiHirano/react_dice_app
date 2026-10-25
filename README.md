@@ -10,7 +10,7 @@ This app allows you to do follwings:
 
 ## Development
 
-Use Node.js 22 and pnpm 10.32.0.
+Use Node.js 24 and pnpm 10.32.0.
 
 ```sh
 npm install --global pnpm@10.32.0

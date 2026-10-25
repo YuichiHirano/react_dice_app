@@ -6,7 +6,7 @@
 		"dockerfile": "Dockerfile",
 		// Pin the Node.js and Debian versions used by the dev container.
 		"args": {
-			"VARIANT": "22-bookworm"
+			"VARIANT": "24-bookworm"
 		}
 	},
 	// Set *default* container specific settings.json values on container create.
